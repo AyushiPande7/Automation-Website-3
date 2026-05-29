@@ -65,9 +65,14 @@ export default function App() {
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-white/60" />
 
-        {/* Subtle Light mode abstract shapes */}
-        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary-500/5 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-slate-300/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Subtle Light mode abstract shapes - modified by INAP*/}
+        <div class="fixed inset-0 pointer-events-none overflow-hidden">
+          <div class="absolute inset-0 bg-white/85"></div>
+
+          <div class="absolute top-[-10%] right-0 w-[40%] h-[40%] bg-primary-500/5 rounded-full blur-[80px] animate-pulse"></div>
+
+          <div class="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-slate-300/20 rounded-full blur-[100px] animate-pulse"></div>
+        </div>
 
         {/* Abstract SVG lines */}
         <svg className="absolute top-0 right-0 w-full h-full opacity-[0.03]" viewBox="0 0 100 100" preserveAspectRatio="none">

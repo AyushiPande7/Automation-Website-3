@@ -150,4 +150,23 @@ const deleteMember = (req, res) => {
   });
 };
 
-module.exports = { getTeam, createMember, updateMember, deleteMember };
+// ─── PATCH /api/team/reorder  (admin only) edited by INAP ───────────────────────────────────
+const reorderMembers = (req, res) => {
+  const { order } = req.body;  // [{ id, sortOrder }, ...]
+  if (!Array.isArray(order) || order.length === 0) {
+    return res.status(400).json({ message: 'order array is required' });
+  }
+
+  db.serialize(() => {
+    const stmt = db.prepare('UPDATE team_members SET sortOrder = ? WHERE id = ?');
+    for (const item of order) {
+      stmt.run(item.sortOrder, item.id);
+    }
+    stmt.finalize((err) => {
+      if (err) return res.status(500).json({ message: err.message });
+      res.json({ message: 'Order updated successfully' });
+    });
+  });
+};
+
+module.exports = { getTeam, createMember, updateMember, deleteMember, reorderMembers };

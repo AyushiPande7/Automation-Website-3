@@ -16,6 +16,9 @@ const TeamAPI = {
   },
 
   deleteMember: (id) => axios.delete(`/api/team/${id}`),
+
+  /** Batch-update sortOrder after drag-and-drop reorder - edited by INAP */
+  reorderMembers: (order) => axios.patch('/api/team/reorder', { order }),
 };
 
 /** Convert a plain object to FormData (used when no file is attached) */

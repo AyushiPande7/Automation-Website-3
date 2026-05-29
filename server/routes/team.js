@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getTeam, createMember, updateMember, deleteMember } = require('../controllers/teamController');
+const { getTeam, createMember, updateMember, deleteMember, reorderMembers } = require('../controllers/teamController');  /* edited by INAP */
 const { protect, adminOnly, optionalProtect } = require('../middleware/auth');
 const { uploadTeam } = require('../middleware/upload');
 
@@ -9,6 +9,9 @@ router.get('/', optionalProtect, getTeam);
 
 // POST — admin only (with photo upload)
 router.post('/', protect, adminOnly, uploadTeam.single('photo'), createMember);
+
+// PATCH — admin only (batch reorder) edited by INAP 
+router.patch('/reorder', protect, adminOnly, reorderMembers);
 
 // PUT — admin only (with optional photo update)
 router.put('/:id', protect, adminOnly, uploadTeam.single('photo'), updateMember);

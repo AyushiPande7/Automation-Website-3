@@ -21,7 +21,7 @@ const STATUS_COLORS = {
   'Submitted':          'bg-amber-50 text-amber-600 border-amber-100',
   'Approved':           'bg-emerald-50 text-emerald-600 border-emerald-100',
   'In Progress':        'bg-blue-50 text-blue-600 border-blue-100',
-  'Validation': 'bg-purple-50 text-purple-600 border-purple-100',
+  'Validation':         'bg-purple-50 text-purple-600 border-purple-100',
   'Implemented':        'bg-slate-50 text-slate-500 border-slate-200',
   'Rejected':           'bg-rose-50 text-rose-600 border-rose-100',
 };
@@ -248,8 +248,8 @@ export default function IdeasTable() {
                   <td className="px-8 py-6">
                     <span className={`text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest border
                       ${idea.classification === 'AI' 
-                        ? 'bg-violet-50 text-violet-700 border-violet-100' 
-                        : 'bg-emerald-50 text-emerald-700 border-emerald-100'}`}>
+                        ? 'bg-[#FDF2F8] text-[#C24180] border-[#FBCFE8]' 
+                        : 'bg-[#EDFDFD] text-[#2C7A7B] border-[#C4F1F9]'}`}>
                       {idea.classification === 'AI' ? 'AI' : 'Automation'}
                     </span>
                   </td>
